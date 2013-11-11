@@ -1,5 +1,5 @@
 {
-    "name": "vendor/zf-snap-php-error",
+    "name": "snapshotpl/zf-snap-php-error",
     "description": "PHP Error module for Zend Framework 2",
     "keywords": [
         "php-error",
