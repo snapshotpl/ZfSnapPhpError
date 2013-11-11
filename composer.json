@@ -20,7 +20,7 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/snapshotpl/php-error"
+            "url": "https://github.com/snapshotpl/php-error.git"
         }
     ],
     "require": {
