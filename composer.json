@@ -23,7 +23,13 @@
         }
     ],
     "require": {
+        "php": ">=5.3.3",
         "joseph-lenton/php-error": "dev-master",
         "zendframework/zendframework": "2.*"
+    },
+    "autoload": {
+        "classmap": [
+            "./Module.php"
+        ]
     }
 }
