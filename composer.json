@@ -20,12 +20,12 @@
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/snapshotpl/php-error.git"
+            "url": "git://github.com/snapshotpl/php-error.git"
         }
     ],
     "require": {
         "php": ">=5.3.3",
-        "snapshotpl/php-error": "dev-master",
+        "joseph-lenton/php-error": "dev-master",
         "zendframework/zendframework": "2.*"
     }
 }
