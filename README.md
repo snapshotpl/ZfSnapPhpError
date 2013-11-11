@@ -38,9 +38,9 @@ Features
 * Ready to use - just install via composer.json!
 * easy configurable via module config,
 * additional info about ZF2 application on error page:
-  * service_manager
-  * modules
-  * current route
+  * service_manager,
+  * modules,
+  * current route,
 
 How to config?
 --------------
