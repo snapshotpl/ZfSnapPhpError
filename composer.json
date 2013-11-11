@@ -13,7 +13,8 @@
     "authors": [
         {
             "name": "Witold Wasiczko",
-            "email": "witold@wasiczko.pl"
+            "email": "witold@wasiczko.pl",
+            "homepage": "http://www.psd2html.pl/"
         }
     ],
     "repositories": [
@@ -24,12 +25,7 @@
     ],
     "require": {
         "php": ">=5.3.3",
-        "joseph-lenton/php-error": "dev-master",
+        "snapshotpl/php-error": "dev-master",
         "zendframework/zendframework": "2.*"
-    },
-    "autoload": {
-        "classmap": [
-            "./Module.php"
-        ]
     }
 }
