@@ -5,6 +5,8 @@ PHP Error module for Zend Framework 2
 
 Version 0.9.0 Created by Witold Wasiczko
 
+![Better Error Message](http://i.imgur.com/1G77I.png)
+
 Usage
 -----
 Just install module via composer and use all features of [`PHP-Error`](http://phperror.net/) project!
