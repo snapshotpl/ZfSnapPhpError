@@ -19,21 +19,13 @@
     ],
     "repositories": [
         {
-            "type": "package",
-            "package": {
-                "name": "snapshotpl/PHP-Error",
-                "version": "dev-fixes",
-                "source": {
-                    "url": "https://github.com/snapshotpl/PHP-Error.git",
-                    "type": "git",
-                    "reference": "fixes"
-                }
-            }
+            "type": "vcs",
+            "url": "https://github.com/snapshotpl/PHP-Error"
         }
     ],
     "require": {
         "php": ">=5.3.3",
-        "snapshotpl/PHP-Error": "dev-fixes",
+        "joseph-lenton/PHP-error": "dev-fixes",
         "zendframework/zendframework": "2.*"
     },
     "autoload": {
