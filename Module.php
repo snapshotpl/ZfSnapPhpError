@@ -9,6 +9,7 @@
 namespace ZfSnapPhpError;
 
 use Zend\EventManager\EventInterface;
+use Zend\Http\PhpEnvironment\Request;
 use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\Mvc\MvcEvent;
@@ -30,6 +31,10 @@ class Module implements ConfigProviderInterface, BootstrapListenerInterface
      */
     public function onBootstrap(EventInterface $e)
     {
+        if (!$e->getRequest() instanceof Request) {
+            return;
+        }
+
         $application  = $e->getApplication();
         $config       = $application->getConfig();
         $moduleConfig = $config['php-error'];

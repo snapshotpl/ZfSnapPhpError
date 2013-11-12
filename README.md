@@ -41,6 +41,7 @@ Features
   * service_manager,
   * modules,
   * current route,
+* access to `\php_error\ErrorHandler` object by service manager (key `phperror`)
 
 How to config?
 --------------
