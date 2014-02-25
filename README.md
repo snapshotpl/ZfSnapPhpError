@@ -3,9 +3,9 @@ ZfSnapPhpError
 
 PHP Error module for Zend Framework 2
 
-Version 0.9.0 Created by Witold Wasiczko
+Version 1.0.0 Created by Witold Wasiczko
 
-![Better Error Message](http://i.imgur.com/1G77I.png)
+![Better Error Message](http://www.psd2html.pl/public/ZfSnapPhpError/head.png)
 
 Usage
 -----
@@ -15,7 +15,7 @@ ZfSnapPhpError uses [`forked version of PHP-Error`](https://github.com/snapshotp
 
 How to install?
 ---------------
-Via [`composer`](https://getcomposer.org/)
+By [`composer`](https://getcomposer.org/)
 ```json
 {
     "repositories": [
@@ -25,16 +25,20 @@ Via [`composer`](https://getcomposer.org/)
         }
     ],
     "require": {
-        "snapshotpl/zf-snap-php-error": "dev-master"
+        "snapshotpl/zf-snap-php-error": "1.*"
     }
 }
 ```
 
-run composer update and add module ZfSnapPhpError to ZF2 application configuration.
+run `composer update` and add module `ZfSnapPhpError` to ZF2 `application.config.php`
 
 Features
 --------
 * All [`PHP-Error`](http://phperror.net/) features
+  * Catch php errors,
+  * Catch php exceptions,
+  * Works with ajax requests!
+  * and [`more`](http://phperror.net/)...!
 * Ready to use - just install via composer.json!
 * easy configurable via module config,
 * additional info about ZF2 application on error page:
@@ -42,6 +46,8 @@ Features
   * modules,
   * current route,
 * access to `\php_error\ErrorHandler` object by service manager (key `phperror`)
+
+![Better Error Message](http://www.psd2html.pl/public/ZfSnapPhpError/custom.png)
 
 How to config?
 --------------
