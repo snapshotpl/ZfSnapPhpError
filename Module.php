@@ -14,6 +14,7 @@ use Zend\ModuleManager\Feature\BootstrapListenerInterface;
 use Zend\ModuleManager\Feature\ConfigProviderInterface;
 use Zend\Mvc\MvcEvent;
 use Zend\ServiceManager\ServiceManager;
+use \Exception;
 
 class Module implements ConfigProviderInterface, BootstrapListenerInterface
 {
@@ -35,6 +36,7 @@ class Module implements ConfigProviderInterface, BootstrapListenerInterface
             return;
         }
 
+        /* @var $application \Zend\Mvc\Application */
         $application  = $e->getApplication();
         $config       = $application->getConfig();
         $moduleConfig = $config['php-error'];
@@ -52,7 +54,23 @@ class Module implements ConfigProviderInterface, BootstrapListenerInterface
         $serviceManager->setService('phperror', $phperror);
 
         $eventManager = $application->getEventManager();
-        $eventManager->attach(MvcEvent::EVENT_ROUTE, array($this, 'onRoute'));
+
+        $eventManager->attach(MvcEvent::EVENT_ROUTE, function (MvcEvent $e) use ($phperror) {
+            $route      = $e->getRouteMatch();
+            $machedName = $route->getMatchedRouteName();
+            $params     = $route->getParams();
+            $key = sprintf('current route "%s"', $machedName);
+
+            $phperror->addCustomData($key, $params);
+        });
+
+        $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, function (MvcEvent $event) {
+            $exception = $event->getParam('exception');
+
+            if ($exception instanceof Exception) {
+                throw $exception;
+            }
+        });
     }
 
     /**
@@ -64,19 +82,5 @@ class Module implements ConfigProviderInterface, BootstrapListenerInterface
         $moduleManager = $serviceManager->get('ModuleManager');
 
         return array_keys($moduleManager->getLoadedModules());
-    }
-
-    /**
-     * @param MvcEvent $e
-     */
-    public function onRoute(MvcEvent $e)
-    {
-        $route      = $e->getRouteMatch();
-        $machedName = $route->getMatchedRouteName();
-        $params     = $route->getParams();
-
-        $phperror = $e->getApplication()->getServiceManager()->get('phperror');
-        $key      = sprintf('route %s', $machedName);
-        $phperror->addCustomData($key, $params);
     }
 }
