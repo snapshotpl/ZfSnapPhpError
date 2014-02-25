@@ -28,7 +28,7 @@ class Module implements ConfigProviderInterface, BootstrapListenerInterface
     }
 
     /**
-     * @param \Zend\EventManager\EventInterface $e
+     * @param EventInterface $e
      */
     public function onBootstrap(EventInterface $e)
     {
@@ -41,7 +41,7 @@ class Module implements ConfigProviderInterface, BootstrapListenerInterface
         $config       = $application->getConfig();
         $moduleConfig = $config['php-error'];
 
-        if (!$moduleConfig['enabled']) {
+        if ($moduleConfig['enabled'] === false) {
             return;
         }
 
@@ -64,13 +64,15 @@ class Module implements ConfigProviderInterface, BootstrapListenerInterface
             $phperror->addCustomData($key, $params);
         });
 
-        $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, function (MvcEvent $event) {
+        $listener = function (MvcEvent $event) {
             $exception = $event->getParam('exception');
 
             if ($exception instanceof Exception) {
                 throw $exception;
             }
-        });
+        };
+        $eventManager->attach(MvcEvent::EVENT_DISPATCH_ERROR, $listener);
+        $eventManager->attach(MvcEvent::EVENT_RENDER_ERROR, $listener);
     }
 
     /**
