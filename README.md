@@ -9,13 +9,13 @@ Version 1.0.0 Created by Witold Wasiczko
 
 Usage
 -----
-Just install module via composer and use all features of [`PHP-Error`](http://phperror.net/) project!
+Just install module via composer and use all features of [PHP-Error](http://phperror.net/) project!
 
-ZfSnapPhpError uses [`forked version of PHP-Error`](https://github.com/snapshotpl/PHP-Error) with new features and bug-fixes.
+ZfSnapPhpError uses [forked version of PHP-Error](https://github.com/snapshotpl/PHP-Error) with new features and bug-fixes.
 
 How to install?
 ---------------
-By [`composer`](https://getcomposer.org/)
+By [composer.json](https://getcomposer.org/)
 ```json
 {
     "repositories": [
@@ -34,11 +34,11 @@ run `composer update` and add module `ZfSnapPhpError` to ZF2 `application.config
 
 Features
 --------
-* All [`PHP-Error`](http://phperror.net/) features
+* All [PHP-Error](http://phperror.net/) features
   * Catch php errors,
   * Catch php exceptions,
   * Works with ajax requests!
-  * and [`more`](http://phperror.net/)...!
+  * and [more](http://phperror.net/)...!
 * Ready to use - just install via composer.json!
 * easy configurable via module config,
 * additional info about ZF2 application on error page:
@@ -62,5 +62,5 @@ return array(
     ),
 );
 ```
-* set enabled to false to disabled PHP-Error
-* pass options of PHP-Error ([`more info here`](https://github.com/JosephLenton/PHP-Error/wiki/Options#all-options))
+* set `enabled` to `false` to disabled PHP-Error
+* set `options` of PHP-Error ([more info here](https://github.com/JosephLenton/PHP-Error/wiki/Options#all-options))
